@@ -26,7 +26,7 @@ class CalculatorViewModel : ViewModel() {
     }
 
     fun onEqualPress(){
-        engine.equals()
+        engine.calculate()
         _result.value = engine.getDisplayedNumber()
     }
 

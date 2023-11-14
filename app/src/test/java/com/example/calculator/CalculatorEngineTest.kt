@@ -2,7 +2,6 @@ package com.example.calculator
 
 import org.junit.Assert
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 
 class CalculatorEngineTest{
     @Test
@@ -20,7 +19,7 @@ class CalculatorEngineTest{
         engine.addNumber(0.0)
         Assert.assertEquals("10", engine.getDisplayedNumber())
 
-        engine.equals()
+        engine.calculate()
         Assert.assertEquals("5442", engine.getDisplayedNumber())
 
     }

@@ -4,13 +4,21 @@ import java.text.DecimalFormat
 
 class CalculatorEngine {
     private var numberA: Double? = null
+    private var numberANeg: Boolean = false
     private var numberB: Double? = null
+    private var numberBNeg: Boolean = false
     private var floating: Double = 1.0
     private var operation: Operations? = null
 
-    fun equals() {
+    fun calculate() {
         if (numberA == null || numberB == null || operation == null) {
             return
+        }
+        if(numberANeg){
+            numberA = -numberA!!
+        }
+        if(numberBNeg){
+            numberB = -numberB!!
         }
         numberA = operation!!.apply(numberA!!, numberB!!)
         numberB = null
@@ -20,24 +28,27 @@ class CalculatorEngine {
         if (numberA == null)
             return
         operation = op
+
+        if(numberB != null)
+            calculate()
     }
 
     fun changeSign(){
         if(numberB != null){
-            numberB = -numberB!!
+            numberBNeg = !numberBNeg
             return
         }
 
         if(numberA != null){
-            numberA = -numberA!!
+            numberANeg = !numberANeg
         }
     }
 
     fun getDisplayedNumber(): String {
         val formatter = DecimalFormat("0.#")
         val result = when {
-            numberB != null -> numberB
-            numberA != null -> numberA
+            numberB != null -> if(numberBNeg) -numberB!! else numberB!!
+            numberA != null -> if(numberANeg) -numberA!! else numberA!!
             else -> 0.0
         }
         return formatter.format(result)
