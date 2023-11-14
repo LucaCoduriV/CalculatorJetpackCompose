@@ -20,6 +20,11 @@ class CalculatorViewModel : ViewModel() {
         _result.value = engine.getDisplayedNumber()
     }
 
+    fun onSignChange(){
+        engine.changeSign()
+        _result.value = engine.getDisplayedNumber()
+    }
+
     fun onEqualPress(){
         engine.equals()
         _result.value = engine.getDisplayedNumber()

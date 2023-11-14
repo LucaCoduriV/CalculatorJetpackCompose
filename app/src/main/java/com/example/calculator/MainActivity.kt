@@ -101,6 +101,7 @@ fun Calculator(viewModel: CalculatorViewModel = viewModel()) {
                 viewModel.onResetPress()
             }
             CustomButton(text = "+/-", color = Color(0xffa5a5a5)) {
+                viewModel.onSignChange()
             }
             CustomButton(text = "%", color = Color(0xffa5a5a5)) {
                 viewModel.onOperationPress(Operations.PURCENTAGE)

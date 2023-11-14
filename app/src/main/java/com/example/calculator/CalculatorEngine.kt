@@ -22,6 +22,17 @@ class CalculatorEngine {
         operation = op
     }
 
+    fun changeSign(){
+        if(numberB != null){
+            numberB = -numberB!!
+            return
+        }
+
+        if(numberA != null){
+            numberA = -numberA!!
+        }
+    }
+
     fun getDisplayedNumber(): String {
         val formatter = DecimalFormat("0.#")
         val result = when {
